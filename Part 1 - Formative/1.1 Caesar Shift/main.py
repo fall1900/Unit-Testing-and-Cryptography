@@ -17,7 +17,6 @@ def caesar_decode(text, n):
         index = alpha.index(let)
         new_str += alpha[(index - n) % 26]
     return new_str
-    return ""
 
 
 test = "HELLOWORLD"
