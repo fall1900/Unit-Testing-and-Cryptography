@@ -5,7 +5,10 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def vig_encode(text, keyword):
   new_str = ""
   for let in text:
-
+    index_a = alpha.index(let)
+    index_b = alpha.index(keyword[index_a])
+    index_sum = (index_a + index_b) % 26
+    new_str += alpha[index_sum]
   return new_str
 
 
