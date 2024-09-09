@@ -3,11 +3,16 @@
 alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def vig_encode(text, keyword):
-  return ""
+  new_str = ""
+  for let in text:
+
+  return new_str
 
 
 def vig_decode(text, keyword):
-  return ""
+  new_str = ""
+
+  return new_str
 
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"

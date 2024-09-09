@@ -6,9 +6,9 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 from main import sub_decode
 
 class TestSubDecode(TestCase):
-    cipher_alphabet = " WJKUXVBMIYDTPLHZGONCRSAEFQ"
-    cipher_alphabet1 = " QWERTYUIOPASDFGHJKLZXCVBNM"
-    cipher_alphabet2 = " MNBVCXZLKJHGFDSAPOIUYTREWQ"
+    cipher_alphabet = "WJKUXVBMIYDTPLHZGONCRSAEFQ"
+    cipher_alphabet1 = "QWERTYUIOPASDFGHJKLZXCVBNM"
+    cipher_alphabet2 = "MNBVCXZLKJHGFDSAPOIUYTREWQ"
     def test_sub_decode_one_word_alpha(self):
         self.assertEqual(sub_decode("MXTTHAHOTU", self.cipher_alphabet), "HELLOWORLD")
 

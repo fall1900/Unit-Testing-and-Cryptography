@@ -5,10 +5,13 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 from main import sub_encode
 
+
 class TestSubEncode(TestCase):
+    alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     cipher_alphabet = "WJKUXVBMIYDTPLHZGONCRSAEFQ"
     cipher_alphabet1 = "QWERTYUIOPASDFGHJKLZXCVBNM"
     cipher_alphabet2 = "MNBVCXZLKJHGFDSAPOIUYTREWQ"
+
     def test_sub_encode_one_word_uppercase_alpha(self):
         self.assertEqual(sub_encode("HELLOWORLD", self.cipher_alphabet), "MXTTHAHOTU")
 
