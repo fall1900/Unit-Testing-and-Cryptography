@@ -53,7 +53,6 @@ def vig_decode(text, keyword):
         new_str += alpha[index_sum]
     return new_str
 
-
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 vig_key = "TEST"
 enc = vig_encode(test, vig_key)
