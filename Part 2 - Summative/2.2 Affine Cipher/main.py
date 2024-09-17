@@ -49,14 +49,25 @@ print(dec)
 # If this worked, dec should be the same as test!
 
 
-
 # PART 2
 # These  are the functions you'll need to write:
 def convert_to_num(ngram):
-    return 0
+    number = 0
+    for i in range(len(ngram)):
+        if ngram[i] in alpha:
+            index = alpha.index(ngram[i])
+            number += index * (26**i)
+        else:
+            number += ngram[i]
+    return number
 
 def convert_to_text(num, n):
-    return ''
+    new_str = ""
+    for i in range(n):
+        index = num % 26
+        new_str += alpha[index]
+        num = num // 26
+    return new_str
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
@@ -72,16 +83,22 @@ print(answer)
 
 # These are the functions you'll need to write:
 def affine_n_encode(text, n, a, b):
-    return ''
+    new_str = ""
+    for i in range(len(text)):
+        if text[i] in alpha:
+            index = (alpha.index(text[i]) * a + b) % (26**n)
+            new_str += alpha[index % 26]
+
+    return new_str
 
 def affine_n_decode(text, n, a, b):
     return ''
 
-test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
+test = "COOL"
 n = 5
 a = 347
 b = 1721
-enc = affine_n_encode(test, n, a, b)
+enc = affine_n_encode(test, 2, 3, 121)
 dec = affine_n_decode(enc, n, a, b)
 print(enc, dec)
 # If this worked, dec should be the same as test!
