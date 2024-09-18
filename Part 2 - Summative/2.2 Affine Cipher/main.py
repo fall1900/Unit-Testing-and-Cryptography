@@ -22,21 +22,15 @@ def mod_inverse(a, m):
 def affine_encode(text, a, b):
     new_str = ""
     for let in text:
-        if let in alpha:
-            index = (alpha.index(let) * a + b) % 26
-            new_str += alpha[index]
-        else:
-            new_str += let
+        index = (alpha.index(let) * a + b) % 26
+        new_str += alpha[index]
     return new_str
 
 def affine_decode(text, a, b):
     new_str = ""
     for let in text:
-        if let in alpha:
-            index = (alpha.index(let) - b) * mod_inverse(a, 26) % 26
-            new_str += alpha[index]
-        else:
-            new_str += let
+        index = (alpha.index(let) - b) * mod_inverse(a, 26) % 26
+        new_str += alpha[index]
     return new_str
 
 test = "HELLOWORLD"
@@ -54,11 +48,8 @@ print(dec)
 def convert_to_num(ngram):
     number = 0
     for i in range(len(ngram)):
-        if ngram[i] in alpha:
-            index = alpha.index(ngram[i])
-            number += index * (26**i)
-        else:
-            number += ngram[i]
+        index = alpha.index(ngram[i])
+        number += index * (26**i)
     return number
 
 def convert_to_text(num, n):
@@ -83,13 +74,23 @@ print(answer)
 
 # These are the functions you'll need to write:
 def affine_n_encode(text, n, a, b):
+    loop_times = len(text) // n
+    num = 0
     new_str = ""
-    for i in range(len(text)):
-        if text[i] in alpha:
-            index = (alpha.index(text[i]) * a + b) % (26**n)
-            new_str += alpha[index % 26]
-
+    for i in range(loop_times):
+        str_slc = (text[n * i:n * (i + 1)])
+        for l in range(len(str_slc)):
+            index = alpha.index(str_slc[i])
+            num += index * (26 ** i)
+        for let in str_slc:
+            index = (alpha.index(let) * a + b) % 26
+            new_str += alpha[index]
+        for l in range(len(str_slc)):
+            index = num % 26
+            new_str += alpha[index]
+            num = num // 26
     return new_str
+
 
 def affine_n_decode(text, n, a, b):
     return ''
