@@ -73,33 +73,32 @@ print(answer)
 # PART 3
 
 # These are the functions you'll need to write:
-def affine_n_encode(text, n, a, b):
-    loop_times = len(text) // n
-    num = 0
-    new_str = ""
-    for i in range(loop_times):
-        str_slc = (text[n * i:n * (i + 1)])
-        for l in range(len(str_slc)):
-            index = alpha.index(str_slc[i])
-            num += index * (26 ** i)
-        for let in str_slc:
-            index = (alpha.index(let) * a + b) % 26
-            new_str += alpha[index]
-        for l in range(len(str_slc)):
-            index = num % 26
-            new_str += alpha[index]
-            num = num // 26
-    return new_str
+# def affine_n_encode(text, n, a, b):
+#     loop_times = len(text) // n
+#     num = 0
+#     new_str = ""
+#     for i in range(loop_times):
+#         str_slc = (text[n * i:n * (i+1)])
+#         for f in range(len(str_slc)):
+#             index = alpha.index(str_slc[f])
+#             num += index * (26 ** f)
+#         for let in str_slc:
+#             index = (alpha.index(let) * a + b) % 26
+#             new_str += alpha[index]
+#             index = num % 26
+#             new_str += alpha[index]
+#             num = num // 26
+#     return new_str
 
 
 def affine_n_decode(text, n, a, b):
     return ''
 
-test = "COOL"
+test = "CO0L"
 n = 5
 a = 347
 b = 1721
-enc = affine_n_encode(test, 2, 3, 121)
+# enc = affine_n_encode(test, 2, 3, 121)
 dec = affine_n_decode(enc, n, a, b)
 print(enc, dec)
 # If this worked, dec should be the same as test!
