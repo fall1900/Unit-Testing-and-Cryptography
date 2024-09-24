@@ -2,7 +2,14 @@
 
 alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+
 def caesar_encode(text, n):
+    """
+    takes the number of shift times and the text; returns the encoded text
+    :param text: the text that needs to be encoded
+    :param n: amount of times to shift the text
+    :return: the encoded text
+    """
     new_str = ""
     for let in text:
         if let in alpha:
@@ -13,8 +20,13 @@ def caesar_encode(text, n):
     return new_str
 
 
-
 def caesar_decode(text, n):
+    """
+    takes the number of shift times and the encoded text; returns the decoded text
+    :param text: the encoded text
+    :param n: amount of times to shift the text
+    :return: the decoded text
+    """
     new_str = ""
     for let in text:
         if let in alpha:

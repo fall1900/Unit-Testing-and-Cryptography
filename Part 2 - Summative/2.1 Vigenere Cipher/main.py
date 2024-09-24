@@ -4,6 +4,12 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_"
 
 
 def vig_encode(text, keyword):
+    """
+    takes the text that needs to be encoded and takes a keyword and returns the encoded text
+    :param text: the message or word that is used and encoded in the function
+    :param keyword: the keyword used to encode the text
+    :return: returns new_str, which is a string of the encoded message
+    """
     text = text.upper()
     keyword = keyword.upper()
     new_str = ""
@@ -27,6 +33,12 @@ def vig_encode(text, keyword):
 
 
 def vig_decode(text, keyword):
+    """
+    takes the encoded text and a keyword and returns the decoded text
+    :param text: the encoded message that is used and decoded in the function
+    :param keyword: the keyword used to decode the encoded message
+    :return: returns new_str, which is a string of all the decoded letters, forming the decoded message
+    """
     low = 0
     if text == text.lower():
         low += 1
@@ -65,32 +77,3 @@ dec = vig_decode(enc, vig_key)
 print(enc)
 print(dec)
 # If this worked, dec should be the same as test!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

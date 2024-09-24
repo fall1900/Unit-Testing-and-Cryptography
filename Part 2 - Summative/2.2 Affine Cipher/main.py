@@ -20,6 +20,13 @@ def mod_inverse(a, m):
 
 # These are the functions you'll need to write:
 def affine_encode(text, a, b):
+    """
+    takes the text, the caesar shift number, and the multiply number; encodes the message
+    :param text: the input message that needs to be encoded
+    :param a: what you want to multiply the index of the letter by
+    :param b: amount of times to caesar shift the letter by
+    :return: returns the encoded message
+    """
     new_str = ""
     for let in text:
         index = (alpha.index(let) * a + b) % 26
@@ -27,6 +34,13 @@ def affine_encode(text, a, b):
     return new_str
 
 def affine_decode(text, a, b):
+    """
+    takes the encoded message, the caesar shift number, and the multiply number; decodes the message
+    :param text: the encoded message that needs to be decoded
+    :param a: what you want to multiply the index of the letter by
+    :param b: amount of times to caesar shift the letter by
+    :return: returns the decoded message
+    """
     new_str = ""
     for let in text:
         index = (alpha.index(let) - b) * mod_inverse(a, 26) % 26
@@ -46,6 +60,11 @@ print(dec)
 # PART 2
 # These  are the functions you'll need to write:
 def convert_to_num(ngram):
+    """
+    takes the text and encodes it into a number
+    :param ngram: the message you want to encode
+    :return: returns the ngram as an encoded number
+    """
     number = 0
     for i in range(len(ngram)):
         index = alpha.index(ngram[i])
@@ -53,6 +72,12 @@ def convert_to_num(ngram):
     return number
 
 def convert_to_text(num, n):
+    """
+    takes a number and converts it back into a string of letters
+    :param num: the number that you want to convert into text
+    :param n: length of the original ngram
+    :return: the original ngram
+    """
     new_str = ""
     for i in range(n):
         index = num % 26
@@ -74,20 +99,21 @@ print(answer)
 
 # These are the functions you'll need to write:
 def affine_n_encode(text, n, a, b):
-    loop_times = len(text) // n
-    num = 0
-    new_str = ""
-    for i in range(loop_times):
-        str_slc = (text[n * i:n * (i+1)])
-        for i in range(len(str_slc)):
-            index = alpha.index(str_slc[i])
-            num += index * (26 ** i)
-            index = (alpha.index(str_slc[i]) * a + b) % 26
-            new_str += alpha[index]
-            index = num % 26
-            new_str += alpha[index]
-            num = num // 26
-    return new_str
+    pass
+    # loop_times = len(text) // n
+    # num = 0
+    # new_str = ""
+    # for i in range(loop_times):
+    #     str_slc = (text[n * i:n * (i+1)])
+    #     for i in range(len(str_slc)):
+    #         index = alpha.index(str_slc[i])
+    #         num += index * (26 ** i)
+    #         index = (alpha.index(str_slc[i]) * a + b) % 26
+    #         new_str += alpha[index]
+    #         index = num % 26
+    #         new_str += alpha[index]
+    #         num = num // 26
+    # return new_str
 
 
 def affine_n_decode(text, n, a, b):

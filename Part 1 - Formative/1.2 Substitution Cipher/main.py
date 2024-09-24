@@ -4,6 +4,12 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def sub_encode(text, codebet):
+    """
+    takes the text that needs to be encoded and the alphabet that is used to encode; returns the encoded text
+    :param text: the text that needs to be encoded
+    :param codebet: the alphabet that is used to encode the text
+    :return: the encoded text
+    """
     new_str = ""
     for let in text:
         if let in alpha:
@@ -15,6 +21,12 @@ def sub_encode(text, codebet):
 
 
 def sub_decode(text, codebet):
+    """
+    takes the encoded text and the alphabet that is used to encode/decode; returns the decoded text
+    :param text: the text that needs to be decoded
+    :param codebet: the alphabet that is used to encode/decode the text
+    :return: the decoded text
+    """
     new_str = ""
     for let in text:
         if let in alpha:
